@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rapid_isaaclab"
+version = "1.0.0"
+description = "RAPID: Scaling Vision-Language Reward Learning for Robot Manipulation in Parallel Simulation"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+keywords = [
+    "reinforcement-learning",
+    "reward-learning",
+    "vision-language-model",
+    "robot-manipulation",
+    "isaac-sim",
+    "isaaclab",
+]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy<2",
+    "matplotlib>=3.7",
+    "torch>=2.2",
+    "torchvision>=0.17",
+    "Pillow",
+    "opencv-python",
+    "tensorboard",
+    "scikit-learn",
+    "scipy",
+    "requests",
+    "tqdm",
+    "openai",
+    "scikit-image",
+    "typing_extensions==4.12.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["source"]
+include = ["rapid_isaaclab*", "rapid*"]
+
+# USD assets must be included in the installed package
+[tool.setuptools.package-data]
+"rapid_isaaclab" = ["**/*.usd", "**/*.yaml", "**/*.toml"]
+"rapid" = ["**/*.yaml"]
